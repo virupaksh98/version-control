@@ -1,5 +1,0 @@
-Hi All Welcome to the session
-Discussing git commands
-
-git commands:
-1. git init: creates a new local empty repository
