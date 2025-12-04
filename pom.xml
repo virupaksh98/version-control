@@ -16,11 +16,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jacoco.version>0.8.8</jacoco.version>
     <failIfCoverageBelow>0</failIfCoverageBelow>
+    <sonar.organization>virupaksh98-1</sonar.organization>
   </properties>
 
-  <properties>
-  <sonar.organization>virupaksh98-1</sonar.organization>
-</properties>
+  
 
   <dependencies>
     <!-- Servlet API (provided by Tomcat) -->
