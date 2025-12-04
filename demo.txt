@@ -3,4 +3,3 @@ Discussing git commands
 
 git commands:
 1. git init: creates a new local empty repository
-2. git add . : adds all the files in the folder to the repository
