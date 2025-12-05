@@ -1,6 +1,6 @@
 FROM maven:3.8.6-openjdk-17 AS build
 WORKDIR /app    
-COPY ..
+COPY pom.xml .
 RUN mvn clean package -DskipTests
 
 FROM tomcat:10.1-jdk11-openjdk
