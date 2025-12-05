@@ -1,14 +1,12 @@
-# Use official Tomcat image
+FROM maven:3.8.6-openjdk-17 AS build
+WORKDIR /app    
+COPY ..
+RUN mvn clean package -DskipTests
+
 FROM tomcat:10.1-jdk11-openjdk
+RUN rm -rf /usr/local/tomacat/webapps/ROOT
 
-# Remove default ROOT app (optional)
-RUN rm -rf /usr/local/tomcat/webapps/ROOT
+COPY --from=build /app/target/calculator.war /usr/local/tomcat/webapps/calculator.war
 
-# Copy the WAR (the GitHub Action will build calculator.war into target/)
-COPY target/calculator.war /usr/local/tomcat/webapps/calculator.war
-
-# Expose port 8080
 EXPOSE 8080
-
-# Start Tomcat
 CMD ["catalina.sh", "run"]
