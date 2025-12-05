@@ -35,8 +35,8 @@ jobs:
     - name: Upload Jacoco report artifact
       uses: actions/upload-artifact@v4
       with:
-        name: jacoco-report
-        path: target/site/jacoco
+        name: calculator-war
+        path: target/calculator.war
 
  docker:
   needs: [build]
@@ -53,4 +53,10 @@ jobs:
      run: docker build -t ${{secrets.DOCKERHUB_USERNAME}}/calculator-app:latest .
    - name: Push Docker image
      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/calculator-app:latest
+
+   - name: Download artifact
+     uses: actions/download-artifact@v4
+     with:
+       name: calculator-war
+       path: target/
      
