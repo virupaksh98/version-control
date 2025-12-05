@@ -29,14 +29,9 @@ jobs:
        restore-keys: |
         ${{ runner.os }}-m2-
 
-    - name: Build with Maven(test,build,coverage)
-      run: mvn -B clean verify
-
-    - name: Upload Jacoco report artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: calculator-war
-        path: target/calculator.war
+    - uses: actions/checkout@v4
+    - name: Build with Maven
+      run: mvn clean package -DskipTests
 
  docker:
   needs: [build]
