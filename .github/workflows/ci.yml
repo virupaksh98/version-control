@@ -33,6 +33,12 @@ jobs:
     - name: Build with Maven
       run: mvn clean package -DskipTests
 
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: calculator-war
+        path: target/calculator.war
+
  docker:
   needs: [build]
   runs-on: ubuntu-latest
